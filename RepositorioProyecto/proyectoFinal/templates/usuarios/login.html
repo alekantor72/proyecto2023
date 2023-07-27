@@ -1,11 +1,11 @@
 {$ extends 'base.html' $}
 
-{$ block contenido $}
-			<form method="POST">{$csrf_token$}
+{% block contenido %}
+			<form method="POST">{% csrf_token %}
 				{{form.errors}}
-				<input type="text" name="username" placeholder="USUARIO">
-				<input type="password" name="password" placeholder="PASSWORD">
+				<input type="text" name="username" placeholder="USUARIO" required>
+				<input type="password" name="password" placeholder="PASSWORD" required>
 
-				<input type="submit" name="" value="ENVIAR">		
+				<input type="submit" name=" " value="ENVIAR">		
 			</form>
-{$ endblock $}
+{% endblock contenido %}
