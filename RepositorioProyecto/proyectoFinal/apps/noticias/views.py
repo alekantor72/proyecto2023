@@ -27,3 +27,11 @@ class ListarNoticias(ListView):
 	#LLAMADA OBJECT_LIST, CON LA LISTA DE TODAS LAS NOTICIAS		
 
 
+
+def DetalleNoticiaF(request,pk):
+
+	ctx = {}
+	noti = Noticia.objects.get(id = pk)
+	ctx['notcia'] = noti
+
+	return render(request, 'noticias/detalle.html', ctx)
