@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block contenido%}
+	
+	<div class="container">
+	<div class="row mt-3">
+		<div class="col-md-9 mx-auto mb-5">
+			{% for cat in object_list %}
+				<a href="{% url 'noticias:filtro_categoria' cat.pk %}">
+					{{cat.nombre}}
+				</a><br><br>	
+			{% endfor %}	
+		</div>
+	</div>
+</div>
+
+{% endblock contenido %}

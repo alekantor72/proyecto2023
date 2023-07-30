@@ -1,15 +1,15 @@
-{% extends 'base.html' $}
+{% extends 'base.html' %}
 
 
-{% block contenido%}
+{% block contenido %}
 	
 	<div class="container">
 	<div class="row mt-3">
 		<div class="col-md-9 mx-auto mb-5">
 			<div class="row">
-			{% for n in object_list%}
+			{% for n in object_list %}
 				<div class="col-md-4">
-					<a href="{% url 'noticias:detalle_noticias' %}">
+					<a href="{% url 'noticias:detalle_noticias' n.pk %}">
 					<h4>CATEGORIA: {{n.categoria}}</h4>
 					<h4>FECHA: {{n.creado}}</h4>					
 					<h4>TITULO: {{n.titulo}}</h4>
@@ -17,6 +17,10 @@
 					<h4>AUTOR: {{n.autor}}</h4>
 					<hr>
 					</a>
+					<a href="{% url 'noticias:borrar_noticia' n.pk %}" class="btn btn-info">
+				 borrar</a>
+				 	<a href="{% url 'noticias:modificar_noticia' n.pk %}" class="btn btn-success">
+				 modificar</a>
 				</div>
 			{% endfor %}
 		</div>	
@@ -24,4 +28,4 @@
 	</div>
 </div>
 
-{% endblock contenido%}
+{% endblock contenido %}

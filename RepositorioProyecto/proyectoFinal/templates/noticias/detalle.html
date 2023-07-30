@@ -1,22 +1,44 @@
-{% extends 'base.html' $}
+{% extends 'base.html' %}
 
 {% block contenido%}
 	
 	<div class="container">
 	<div class="row mt-3">
 		<div class="col-md-9 mx-auto mb-5">
-			
-			<div class="col-md-4">
+			<div class="row">
+				<div class="col-md-6">
+					<img src="{{noticia.imagen.url}}" width="300">
+				</div>
+				<div class="col-md-6">	
 				<h4>CATEGORIA: {{noticia.categoria}}</h4>
 				<h4>FECHA: {{noticia.creado}}</h4>					
 				<h4>TITULO: {{noticia.titulo}}</h4>
-				<img src="{{noticia.imagen.url}}" width="200">
-				<h4>AUTOR: {{noticia.autor}}</h4>
-				<hr>
-			</div>
 				
+				<h4>AUTOR: {{noticia.autor}}</h4>
+				<p>CONTENIDO: <br>{{noticia.contenido}}</p>
+				<hr>
+				</div>
+			</div>		
+				
+		</div>
+	</div>
+	<hr>
+	<h4>COMENTARIOS</h4>
+	<div class="row" style="margin-bottom: 200px;">
+		<div class="col-md-12">
+		<form method="POST">{% csrf_token %}
+
+			<textarea type="text" name="comentario" style="width: 800px;">
+			
+			</textarea>
+			<input type="submit" name="" value="GUARDAR">	
+		</form>
+		</div>
+		<hr>
+		<div class="row">
+			
 		</div>
 	</div>
 </div>
 
-{% endblock contenido%}
+{% endblock contenido %}

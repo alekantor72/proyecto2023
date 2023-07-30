@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 
-from .models import Noticia
-from .forms import Form_Alta
+from .models import Noticia, Categoria
+from .forms import Form_Alta, Form_Modificacion
 
 #CONTROLA SI EL USUARIO ESTA LOGEADO
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -28,10 +28,30 @@ class ListarNoticias(ListView):
 
 
 
-def DetalleNoticiaF(request,pk):
-
+def DetalleNoticiaF(request, pk):
 	ctx = {}
 	noti = Noticia.objects.get(id = pk)
 	ctx['notcia'] = noti
-
 	return render(request, 'noticias/detalle.html', ctx)
+
+
+class Categorias(ListView):
+	model = Categoria
+	template_name = 'noticias/categorias.html'
+
+def Filtro_Categoria(request, pk):
+	ctx = {}
+	cate = Categoria.objects.get(id = pk)
+	filtradas = Noticia.objects.filter(categoria = cate)
+	ctx['object_list'] = filtradas
+	return render(request, 'noticias/listar.html', ctx)
+
+class BorrarNoticia(DeleteView):
+	model = Noticia
+	success_url = reverse_lazy('noticias:listar_noticias')
+
+class ModificarNoticia(UpdateView):
+	model = Noticia
+	form_class = Form_Modificacion
+	template_name = 'noticias/Modificar.html'
+	success_url = reverse_lazy('noticias:listar_noticias') 
