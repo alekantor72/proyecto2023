@@ -4,13 +4,14 @@ from apps.noticias.models import Noticia
 
 class Comentario(models.Model):
 	creado = models.DateTimeField('creado',
-		auto_now_add=True)
+		auto_now_add=True
+		)
 	modificado = models.DateTimeField('modificado',
-		auto_now=True)
-
+		auto_now=True
+		)
 	texto = models.TextField(max_length = 1000)
 	usuario = models.ForeignKey(User, on_delete = models.CASCADE)
 	noticia = models.ForeignKey(Noticia, on_delete = models.CASCADE)
 
 	def __str__(self):
-		return f"{usuario}-{noticia}"
+		return self.texto

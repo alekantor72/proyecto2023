@@ -31,8 +31,9 @@ class ListarNoticias(ListView):
 def DetalleNoticiaF(request, pk):
 	ctx = {}
 	noti = Noticia.objects.get(id = pk)
-	ctx['notcia'] = noti
+	ctx['noticia'] = noti
 	return render(request, 'noticias/detalle.html', ctx)
+
 
 
 class Categorias(ListView):
