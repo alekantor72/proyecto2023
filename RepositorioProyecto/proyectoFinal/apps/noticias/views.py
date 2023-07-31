@@ -8,17 +8,24 @@ from .forms import Form_Alta, Form_Modificacion
 #CONTROLA SI EL USUARIO ESTA LOGEADO
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-class CrearNoticia(LoginRequiredMixin, CreateView):
+from django.contrib.auth.mixins		import UserPassesTestMixin
+
+class CrearNoticia(LoginRequiredMixin,UserPassesTestMixin, CreateView):
 	model = Noticia
 	form_class = Form_Alta
 	template_name = 'noticias/crear.html'
 	success_url = reverse_lazy('noticias:listar_noticias') 
 
 
+	def test_func(self):
+		return self.request.user.is_staff
+
 	def form_valid(self, form):
 		noticia = form.save(commit=False)
 		noticia.autor = self.request.user
 		return super(CrearNoticia, self).form_valid(form)
+
+
 
 class ListarNoticias(ListView):
 	model = Noticia

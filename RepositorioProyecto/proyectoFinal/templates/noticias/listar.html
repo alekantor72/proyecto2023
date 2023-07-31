@@ -17,10 +17,12 @@
 					<h4>AUTOR: {{n.autor}}</h4>
 					<hr>
 					</a>
+					{% if user.is_staff %}
 					<a href="{% url 'noticias:borrar_noticia' n.pk %}" class="btn btn-info">
 				 borrar</a>
 				 	<a href="{% url 'noticias:modificar_noticia' n.pk %}" class="btn btn-success">
 				 modificar</a>
+				 {% endif %}
 				</div>
 			{% endfor %}
 		</div>	

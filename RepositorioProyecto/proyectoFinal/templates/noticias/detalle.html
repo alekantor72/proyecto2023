@@ -41,8 +41,10 @@
 					<h4>{{c.creado}}</h4>
 					<h4>{{c.usuario}}</h4>
 					<h4>{{c.texto}}</h4>
+					{% if user.is_staff or user == c.usuario %}
 					<a	href="{% url 'comentarios:borrar_comentario' c.pk %}" class="btn btn-info">borrar</a>
-					<a	href="{% url 'comentarios:modificar_comentario' c.pk %}" class="btn btn-info">modificar</a>		
+					<a	href="{% url 'comentarios:modificar_comentario' c.pk %}" class="btn btn-info">modificar</a>	
+					{% endif %}
 				</div><hr>
 			{% endfor %}	
 		</div>
