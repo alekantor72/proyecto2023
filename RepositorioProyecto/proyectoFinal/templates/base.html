@@ -23,9 +23,11 @@
 			{% if user.is_staff %}		
 			<a href="{% url 'noticias:crear_noticia' %}">Crear Noticia</a>
 			{%endif%}
-			<a href="{% url 'noticias:listar_noticias' %}">LISTAR</a>
+			<a href="{% url 'noticias:listar_noticias' %}">NOTICIAS</a>
 			<a href="{% url 'noticias:categorias' %}">CATEGORIAS</a>
-			
+			<a href="{% url 'noticias:categorias' %}">ACERCA DE</a>
+			<a href="{% url 'noticias:categorias' %}">CONTACTO</a>
+
 			</div>
 			<div class="col-md-6">	
 			{% if user.is_authenticated %}			
