@@ -5,6 +5,13 @@
 	
 	<div class="container">
 	<div class="row mt-3">
+		<div class="col-md-3">
+			<h4>CATEGORIAS</h4>
+				<a href="#">TODAS</a><br>
+			{% for c in categorias %}
+				<a href="#">{{c.nombre}}</a><br>
+			{% endfor %}
+		</div> 	
 		<div class="col-md-9 mx-auto mb-5">
 			<div class="row">
 			{% for n in object_list %}
