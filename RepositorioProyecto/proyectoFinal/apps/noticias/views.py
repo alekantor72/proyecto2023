@@ -31,7 +31,8 @@ class ListarNoticias(ListView):
 	model = Noticia
 	template_name = 'noticias/listar.html'
 	#POR DEFECTO ESTA VISTA MANDA AL TEMPLATE UNA VARIABLE
-	#LLAMADA OBJECT_LIST, CON LA LISTA DE TODAS LAS NOTICIAS		
+	#LLAMADA OBJECT_LIST, CON LA LISTA DE TODAS LAS NOTICIAS
+			
 
 
 

@@ -18,4 +18,5 @@ urlpatterns = [
 	path('Borrar/<int:pk>', views.BorrarNoticia.as_view(), name="borrar_noticia"),
 
 	path('Modificar/<int:pk>', views.ModificarNoticia.as_view(), name="modificar_noticia"),
+
 ]
