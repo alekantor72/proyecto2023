@@ -29,6 +29,12 @@ LOGIN_URL = reverse_lazy('login')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-aw&@jo1=etixrnsp*yw$dz2+@nql3vk%y)j#*a6m(4tdi0cvwg'
 
+DEBUG = False
+
+ALLOWED_HOSTS = ['alekantor72.pythonanywhere.com']
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 
 
