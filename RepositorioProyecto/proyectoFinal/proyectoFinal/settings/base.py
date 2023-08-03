@@ -22,6 +22,10 @@ LOGIN_REDIRECT_URL = reverse_lazy('home')
 LOGOUT_REDIRECT_URL = reverse_lazy('home')
 LOGIN_URL = reverse_lazy('login')
 
+DEBUG = True
+
+ALLOWED_HOSTS = ['*']
+
 
 
 # Quick-start development settings - unsuitable for production
