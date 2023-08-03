@@ -1,10 +1,6 @@
 from .base import *
 
-DEBUG = False
 
-ALLOWED_HOSTS = ['alekantor72.pythonanywhere.com']
-if not DEBUG:
-    STATTIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DATABASES = {
     'default': {
