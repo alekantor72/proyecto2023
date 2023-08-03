@@ -1,12 +1,11 @@
 from .base import *
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['alekantor72.pythonanywhere.com']
+ALLOWED_HOSTS = ['*']
 
-if not DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
