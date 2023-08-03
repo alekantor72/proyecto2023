@@ -23,18 +23,12 @@ LOGOUT_REDIRECT_URL = reverse_lazy('home')
 LOGIN_URL = reverse_lazy('login')
 
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-aw&@jo1=etixrnsp*yw$dz2+@nql3vk%y)j#*a6m(4tdi0cvwg'
-
-DEBUG = False
-
-ALLOWED_HOSTS = ['alekantor72.pythonanywhere.com']
-if not DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 
 
 
